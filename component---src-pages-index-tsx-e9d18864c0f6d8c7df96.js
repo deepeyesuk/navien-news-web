@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunknavien_news_web=self.webpackChunknavien_news_web||[]).push([[691],{7200:function(e,n,u){u.r(n);var t=u(7294),a=u(9490);n.default=function(){return t.createElement(a.default,null)}}}]);
+//# sourceMappingURL=component---src-pages-index-tsx-e9d18864c0f6d8c7df96.js.map
