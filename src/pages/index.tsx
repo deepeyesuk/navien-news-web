@@ -3,11 +3,11 @@ import "tailwindcss/base.css"
 import "tailwindcss/components.css"
 import "tailwindcss/utilities.css"
 import "tailwindcss/tailwind.css"
-import Example from './Example'
+import NewsList from '../NewsList'
 
 const Init = () => {
   return (
-    <Example />
+    <NewsList />
   )
 }
 
