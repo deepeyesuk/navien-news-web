@@ -3,7 +3,7 @@ import "tailwindcss/base.css"
 import "tailwindcss/components.css"
 import "tailwindcss/utilities.css"
 import "tailwindcss/tailwind.css"
-import NewsList from '../NewsList'
+import NewsList from './news/NewsList'
 
 const Init = () => {
   return (

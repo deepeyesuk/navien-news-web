@@ -1,5 +1,6 @@
 import React from 'react'
 import { CalendarIcon, LocationMarkerIcon, UsersIcon } from '@heroicons/react/solid'
+import { Link } from 'gatsby'
 
 const positions = [
   {
@@ -37,10 +38,12 @@ const NewsList = () => {
       <ul role="list" className="divide-y divide-gray-200">
         {positions.map((position) => (
           <li key={position.id}>
-            <a href="#" className="block hover:bg-gray-50">
+            <div className="block hover:bg-gray-50">
               <div className="px-4 py-4 sm:px-6">
                 <div className="flex items-center justify-between">
-                  <p className="text-sm font-medium text-indigo-600 truncate">{position.title}</p>
+                  <p className="text-sm font-medium text-indigo-600 truncate">
+                    <Link to={`/news/${position.id}`}> {position.title} </Link>
+                  </p>
                   <div className="ml-2 flex-shrink-0 flex">
                     <p className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                       {position.type}
@@ -66,7 +69,7 @@ const NewsList = () => {
                   </div>
                 </div>
               </div>
-            </a>
+            </div>
           </li>
         ))}
       </ul>
