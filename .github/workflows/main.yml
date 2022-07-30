@@ -3,7 +3,7 @@ name: Navien News Web Publish
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
