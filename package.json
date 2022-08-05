@@ -1,5 +1,6 @@
 {
   "name": "gatsby-starter-blog",
+  "type": "module",
   "private": true,
   "description": "A starter for a blog powered by Gatsby and Markdown",
   "version": "0.1.0",
@@ -28,6 +29,10 @@
     "typeface-montserrat": "0.0.75"
   },
   "devDependencies": {
+    "@notionhq/client": "^2.1.1",
+    "dayjs": "^1.11.4",
+    "dotenv": "^16.0.1",
+    "notion-to-md": "^2.5.4",
     "prettier": "^2.7.1"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
@@ -46,6 +51,7 @@
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "sync-posts": "node sync-posts"
   }
 }
