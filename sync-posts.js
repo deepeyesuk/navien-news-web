@@ -36,18 +36,18 @@ pages.map(async x => {
     .map(t => `  - ${t.name}`)
     .join('\n')
 
-  const createdTime = dayjs(x.created_time).format('YYYY-MM-DD')
+  const publishedDate = dayjs(x.created_time).format('YYYY-MM-DD')
 
-  console.dir(createdTime, {depth: null})
+  console.dir(publishedDate, {depth: null})
 
   const mdBlocks = await n2m.pageToMarkdown(x.id)
   const content = n2m.toMarkdownString(mdBlocks)
 
-  const folderName = `./content/blog/${createdTime}-${kebabCase(title)}`
+  const folderName = `./content/blog/${publishedDate}-${kebabCase(title)}`
   const pageContent =
 `---
 title: ${title}
-date: ${createdTime}
+date: ${publishedDate}
 tags:
 ${tags}
 ---
