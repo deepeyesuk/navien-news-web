@@ -1,8 +1,8 @@
-import { Client } from '@notionhq/client'
-import dotenv from 'dotenv'
-import { NotionToMarkdown } from 'notion-to-md'
-import * as fs from 'fs'
-import dayjs from 'dayjs'
+const { Client } = require('@notionhq/client')
+const dotenv = require('dotenv')
+const { NotionToMarkdown } = require('notion-to-md')
+const fs = require('fs')
+const dayjs = require('dayjs')
 
 dotenv.config()
 const notion = new Client({
@@ -14,49 +14,52 @@ const kebabCase = str => str
         .join('-')
         .toLowerCase();
 
-const response = await notion.databases.query({
+notion.databases.query({
   database_id: process.env.NOTION_DATABASE_ID,
-})
+}).then(response => {
+  const pages = response
+    .results
+    .filter(x => x?.object === 'page')
 
-const pages = response
-  .results
-  .filter(x => x?.object === 'page')
-
-pages.map(async x => {
-  const title = (await notion.pages.properties.retrieve({
-    page_id: x.id,
-    property_id: 'title',
-  })).results[0].title.plain_text
-
-  const tags = (await notion.pages.properties.retrieve({
-    page_id: x.id,
-    property_id: 'mntZ',
+  pages.map(async x => {
+    const properties = (await notion.pages.properties.retrieve({
+      page_id: x.id,
+      property_id: 'title',
     }))
-    .multi_select
-    .map(t => `  - ${t.name}`)
-    .join('\n')
+    if (properties.results.length === 0) {
+      return
+    }
 
-  const publishedDate = dayjs(x.created_time).format('YYYY-MM-DD')
+    console.dir(properties, { depth: null })
 
-  console.dir(publishedDate, {depth: null})
+    const title = (await notion.pages.properties.retrieve({
+      page_id: x.id,
+      property_id: 'title',
+    })).results[0].title.plain_text
 
-  const mdBlocks = await n2m.pageToMarkdown(x.id)
-  const content = n2m.toMarkdownString(mdBlocks)
 
-  const folderName = `./content/blog/${publishedDate}-${kebabCase(title)}`
-  const pageContent =
+
+    const publishedDate = dayjs(x.created_time).format('YYYY-MM-DDTHH:mm:ssZ')
+
+    console.dir(publishedDate, {depth: null})
+
+    const mdBlocks = await n2m.pageToMarkdown(x.id)
+    const content = n2m.toMarkdownString(mdBlocks)
+
+    const folderName = `./content/blog/${kebabCase(title)}`
+    const pageContent =
 `---
-title: ${title}
-date: ${publishedDate}
-tags:
-${tags}
+title: "${title}"
+date: "${publishedDate}"
 ---
 ${content}
 `
-  if (!fs.existsSync(folderName)) {
-    fs.mkdirSync(folderName);
-  }
+    if (!fs.existsSync(folderName)) {
+      fs.mkdirSync(folderName);
+    }
 
-  fs.writeFileSync(`${folderName}/index.md`, pageContent);
-  return
-});
+    fs.writeFileSync(`${folderName}/index.md`, pageContent);
+    return
+  });
+})
+
