@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Navien UK Announcements`,
+    title: `Navien UK`,
     author: {
       name: `Kyle Mathews`,
       summary: `who lives and works in San Francisco building useful things.`,
@@ -107,7 +107,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Navien UK Announcements`,
+        name: `Navien UK`,
         short_name: `GatsbyJS`,
         start_url: `/`,
         background_color: `#ffffff`,

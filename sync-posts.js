@@ -30,8 +30,6 @@ notion.databases.query({
       return
     }
 
-    console.dir(properties, { depth: null })
-
     const title = (await notion.pages.properties.retrieve({
       page_id: x.id,
       property_id: 'title',
@@ -40,9 +38,6 @@ notion.databases.query({
 
 
     const publishedDate = dayjs(x.created_time).format('YYYY-MM-DDTHH:mm:ssZ')
-
-    console.dir(publishedDate, {depth: null})
-
     const mdBlocks = await n2m.pageToMarkdown(x.id)
     const content = n2m.toMarkdownString(mdBlocks)
 
