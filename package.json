@@ -8,10 +8,16 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
+    "@heroicons/react": "^1.0.6",
+    "@tailwindcss/aspect-ratio": "^0.4.0",
+    "@tailwindcss/forms": "^0.5.2",
+    "@types/tailwindcss": "^3.1.0",
+    "autoprefixer": "^10.4.8",
     "gatsby": "^4.20.0",
     "gatsby-plugin-feed": "^4.20.0",
     "gatsby-plugin-image": "^2.20.0",
     "gatsby-plugin-manifest": "^4.20.0",
+    "gatsby-plugin-postcss": "^5.20.0",
     "gatsby-plugin-sharp": "^4.20.0",
     "gatsby-remark-copy-linked-files": "^5.20.0",
     "gatsby-remark-images": "^6.20.0",
@@ -21,9 +27,11 @@
     "gatsby-source-filesystem": "^4.20.0",
     "gatsby-transformer-remark": "^5.20.0",
     "gatsby-transformer-sharp": "^4.20.0",
+    "postcss": "^8.4.16",
     "prismjs": "^1.28.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "tailwindcss": "^3.1.8",
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.75"
   },
@@ -52,5 +60,6 @@
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "sync-posts": "node sync-posts"
-  }
+  },
+  "packageManager": "yarn@3.2.2"
 }

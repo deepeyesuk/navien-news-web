@@ -4,6 +4,8 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
+import { CalendarIcon, LocationMarkerIcon, UsersIcon } from '@heroicons/react/solid'
+
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
@@ -21,32 +23,41 @@ const BlogIndex = ({ data, location }) => {
   }
 
   return (
-    <Layout location={location} title={siteTitle}>
-      <ol style={{ listStyle: `none` }}>
-        {posts.map(post => {
-          const title = post.frontmatter.title || post.fields.slug
-
-          return (
+      <div className="bg-white shadow overflow-hidden sm:rounded-md">
+        <ul role="list" className="divide-y divide-gray-200">
+          {posts.map((post) => (
             <li key={post.fields.slug}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
-                  <h2>
-                    <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline">{title}</span>
-                    </Link>
-                  </h2>
-                  <small>{post.frontmatter.date}</small>
-                </header>
-              </article>
+              <Link to={post.fields.slug} itemProp="url">
+                <div className="px-4 py-4 sm:px-6">
+                  <div className="flex items-center justify-between">
+                    <p className="text-sm font-bold text-navien-blue-light truncate">{post.frontmatter.title}</p>
+                    <div className="ml-2 flex-shrink-0 flex">
+                      <p className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                        {post.fields.type}
+                      </p>
+                    </div>
+                  </div>
+                  <p className="mt-2 flex items-center text-sm text-gray-500 sm:mt-0">{post.excerpt.slice(0,100)}</p>
+                  <div className="mt-2 sm:flex sm:justify-between">
+                    <div className="sm:flex">
+                      <p className="flex items-center text-sm text-gray-500">
+                        <UsersIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
+                        {post.frontmatter.author}
+                      </p>
+                    </div>
+                    <div className="mt-2 flex items-center text-sm text-navien-blue sm:mt-0">
+                      <CalendarIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-navien-blue" aria-hidden="true" />
+                      <p>
+                        Written at <time>{post.frontmatter.date}</time>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Link>
             </li>
-          )
-        })}
-      </ol>
-    </Layout>
+          ))}
+        </ul>
+      </div>
   )
 }
 
@@ -73,7 +84,7 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
-          date(formatString: "MMMM DD, YYYY")
+          date(formatString: "DD MMMM, YYYY")
           title
           description
         }
