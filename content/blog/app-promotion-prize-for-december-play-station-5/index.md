@@ -3,7 +3,7 @@ title: "[APP Promotion] Prize for December - PlayStation 5"
 date: "2022-08-09T13:21:00+00:00"
 ---
 
-![](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b2a7873d-5ab6-47bf-b491-8c69f4cd0b6c/win-a-playstation-5.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220926%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220926T034748Z&X-Amz-Expires=3600&X-Amz-Signature=60a47890fefafdefc67db2bbd366b9a7b49cb5a680b08212c5a410e357433b97&X-Amz-SignedHeaders=host&x-id=GetObject)
+![](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/b2a7873d-5ab6-47bf-b491-8c69f4cd0b6c/win-a-playstation-5.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220927%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220927T032850Z&X-Amz-Expires=3600&X-Amz-Signature=da932bae36a032df7e213038bd459aed31eaea949f7acbb52455fb62dcaa67bb&X-Amz-SignedHeaders=host&x-id=GetObject)
 
 
 WIN a Playstation 5! We've stayed ahead of the game and have two of these hotly sought-after consoles to give away as prizes!
